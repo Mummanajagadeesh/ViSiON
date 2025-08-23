@@ -98,6 +98,8 @@ The MAC units were implemented using **Modified Booth Encoding (MBE)** multiplie
 
 **\[TAB III: Yosys comparison of MAC designs (Booth+Kogge-Stone vs MBE+CSA)]**
 
+Modified Booth Multiplier + Carry Save Adder based MAC
+
 ```bash
 
 3. Executing HIERARCHY pass (managing design hierarchy).
@@ -239,6 +241,88 @@ Removed 0 unused modules.
   pe
   systolic_array
 
+```
+Booth Multiplier + Kogge Stone Adder based MAC
+
+
+```bash
+
+=== $paramod\booth_multiplier\WIDTH=s32'00000000000000000000000000001000 ===
+
+   Number of wires:                 43
+   Number of wire bits:            486
+   Number of public wires:           7
+   Number of public wire bits:      98
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 37
+     $add                            7
+     $eq                            14
+     $mux                            1
+     $pmux                           7
+     $sub                            8
+
+=== $paramod\kogge_stone_adder\WIDTH=s32'00000000000000000000000000010000 ===
+
+   Number of wires:                 59
+   Number of wire bits:            269
+   Number of public wires:          14
+   Number of public wire bits:     224
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                124
+     $and                           77
+     $or                            45
+     $xor                            2
+
+=== mac_unit ===
+
+   Number of wires:                 11
+   Number of wire bits:             85
+   Number of public wires:          10
+   Number of public wire bits:      84
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+     $adff                           1
+     $adffe                          1
+     $mux                            1
+     $paramod\booth_multiplier\WIDTH=s32'00000000000000000000000000001000      1
+     $paramod\kogge_stone_adder\WIDTH=s32'00000000000000000000000000010000      1
+
+=== design hierarchy ===
+
+   mac_unit                          1
+     $paramod\booth_multiplier\WIDTH=s32'00000000000000000000000000001000      1
+     $paramod\kogge_stone_adder\WIDTH=s32'00000000000000000000000000010000      1
+
+   Number of wires:                113
+   Number of wire bits:            840
+   Number of public wires:          31
+   Number of public wire bits:     406
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                164
+     $add                            7
+     $adff                           1
+     $adffe                          1
+     $and                           77
+     $eq                            14
+     $mux                            2
+     $or                            45
+     $pmux                           7
+     $sub                            8
+     $xor                            2
+
+
+3 modules:
+  $paramod\booth_multiplier\WIDTH=s32'00000000000000000000000000001000
+  $paramod\kogge_stone_adder\WIDTH=s32'00000000000000000000000000010000
+  mac_unit
 ```
 
 ---
