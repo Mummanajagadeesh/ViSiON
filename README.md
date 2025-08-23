@@ -1,6 +1,14 @@
 
 # Hardware-Accelerated Image Processing and Neural Network Inference in Verilog
 
+
+**High-Level Summary of All Repositories**
+Explore an overview of my repositories here: [GitHub - Mummanajagadeesh](https://github.com/Mummanajagadeesh/#:~:text=Verilog%20HDL%20Toolkit%20for%20Image%20Processing%20and%20Neural%20Network%20Acceleration)
+
+**In-Depth Documentation of Subprojects**
+Detailed documentation for each subproject can be found here: [Subprojects Documentation](https://mummanajagadeesh.github.io/projects/improve/subprojects/)
+
+
 **Author:** Mummana Jagadeesh  
 **Affiliation:** National Institute of Technology Calicut (NIT Calicut)
 
@@ -8,7 +16,7 @@
 
 ## Abstract
 
-This paper presents a modular hardware acceleration framework for image processing and neural network inference, implemented entirely in Verilog HDL and synthesized using open-source tools. The framework integrates image preprocessing modules, arithmetic acceleration units, and neural network architectures to support efficient computation in embedded vision systems. Preprocessing operations including filtering, resizing, and edge detection were designed as standalone Verilog blocks and applied for character recognition tasks. A finite-state machine controlled multilayer perceptron (MLP) was implemented for Extended-MNIST, achieving over 90% training accuracy in software and \~75% accuracy in hardware simulation. A lightweight convolutional neural network (CNN) for CIFAR-10 was developed, with the first convolutional layer accelerated using a systolic array of multiply-accumulate (MAC) units built from modified Booth encoders and carry-save adders. Additionally, softmax activation was implemented using three approaches: native exponential, Taylor series expansion, and CORDIC-based exponentiation. Accuracy, quantization trade-offs, and synthesis statistics are reported. Future extensions include deeper systolic mapping of CNNs, FIFO-based pipelining, posit arithmetic, and FPGA deployment.
+This project presents a modular hardware acceleration framework for image processing and neural network inference, implemented entirely in Verilog HDL and synthesized using open-source tools. The framework integrates image preprocessing modules, arithmetic acceleration units, and neural network architectures to support efficient computation in embedded vision systems. Preprocessing operations including filtering, resizing, and edge detection were designed as standalone Verilog blocks and applied for character recognition tasks. A finite-state machine controlled multilayer perceptron (MLP) was implemented for Extended-MNIST, achieving over 90% training accuracy in software and \~75% accuracy in hardware simulation. A lightweight convolutional neural network (CNN) for CIFAR-10 was developed, with the first convolutional layer accelerated using a systolic array of multiply-accumulate (MAC) units built from modified Booth encoders and carry-save adders. Additionally, softmax activation was implemented using three approaches: native exponential, Taylor series expansion, and CORDIC-based exponentiation. Accuracy, quantization trade-offs, and synthesis statistics are reported. Future extensions include deeper systolic mapping of CNNs, FIFO-based pipelining, posit arithmetic, and FPGA deployment.
 
 ---
 
@@ -510,8 +518,14 @@ A lightweight CNN was implemented with architecture \[(Conv2D×2 + MaxPool)×3 �
 * **GUI:** Tkinter-based interface enabling real-time handwritten digit input for MLP inference.
 
 **\[FIG 5: GUI screenshot with sample input/output]**
+
+### MLP 
 ![alt text](assets/mlp/gui.png)
+![alt text](assets/mlp/metrics.png)
 ![alt text](assets/mlp/gui-ss.png)
+
+### CNN
+
 ![alt text](assets/cnn/pred.png)
 
 ---
