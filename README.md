@@ -512,6 +512,8 @@ A lightweight CNN was implemented with architecture \[(Conv2D×2 + MaxPool)×3 �
 **\[FIG 5: GUI screenshot with sample input/output]**
 ![alt text](assets/mlp/gui.png)
 ![alt text](assets/mlp/gui-ss.png)
+![alt text](assets/cnn/pred.png)
+
 ---
 
 ## VI. Results and Discussion
