@@ -2,17 +2,18 @@ name: Update Submodules
 
 on:
   schedule:
-    - cron: '0 3 * * *'   # daily
-  workflow_dispatch:
+    - cron: '0 3 * * *'   # run daily at 03:00 UTC
+  workflow_dispatch:       # allow manual trigger
 
 jobs:
   update-submodules:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository with submodules
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          submodules: recursive
+          submodules: false   # we'll handle submodules manually
           persist-credentials: false
 
       - name: Configure Git
@@ -20,15 +21,21 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Sync submodules (safety net)
-        run: git submodule sync --recursive
-
-      - name: Update submodules to latest
+      - name: Fix submodule URLs (safety net)
         run: |
-          git submodule update --init --recursive --remote --merge
+          git submodule set-url ImProVe https://github.com/Mummanajagadeesh/ImProVe.git
+          git submodule set-url NeVer https://github.com/Mummanajagadeesh/NeVer.git
+          git submodule set-url cordic-algorithm-verilog https://github.com/Mummanajagadeesh/cordic-algorithm-verilog.git
+          git submodule set-url systolic-array-matrix-multiplication https://github.com/Mummanajagadeesh/systolic-array-matrix-multiplication.git
+          git submodule set-url alternate-numerical-notations-for-riscv https://github.com/Mummanajagadeesh/alternate-numerical-notations-for-riscv.git
+          git submodule sync --recursive
+
+      - name: Init + update submodules
+        run: |
+          git submodule update --init --recursive --remote
           git add .
           git commit -m "chore: update submodules to latest" || echo "No changes to commit"
 
-      - name: Push changes back to main
+      - name: Push changes back
         run: |
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Mummanajagadeesh/ViSiON.git HEAD:main
