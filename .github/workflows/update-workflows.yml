@@ -2,8 +2,8 @@ name: Update Submodules
 
 on:
   schedule:
-    - cron: '0 3 * * *'   
-  workflow_dispatch:      
+    - cron: '0 3 * * *'   # daily
+  workflow_dispatch:
 
 jobs:
   update-submodules:
@@ -19,6 +19,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Sync submodules (safety net)
+        run: git submodule sync --recursive
 
       - name: Update submodules to latest
         run: |
