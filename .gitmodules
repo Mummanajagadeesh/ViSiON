@@ -1,24 +1,15 @@
 [submodule "ImProVe"]
     path = ImProVe
-	url = https://x-access-token:${GITHUB_TOKEN}@github.com/Mummanajagadeesh/ImProVe.git
-    branch = main
-
+    url = git@github.com:Mummanajagadeesh/ImProVe.git
 [submodule "NeVer"]
     path = NeVer
-	url = https://x-access-token:${GITHUB_TOKEN}@github.com/Mummanajagadeesh/NeVer.git
-    branch = main
-
+    url = git@github.com:Mummanajagadeesh/NeVer.git
 [submodule "cordic-algorithm-verilog"]
     path = cordic-algorithm-verilog
-	url = https://x-access-token:${GITHUB_TOKEN}@github.com/Mummanajagadeesh/cordic-algorithm-verilog.git
-    branch = main
-
+    url = git@github.com:Mummanajagadeesh/cordic-algorithm-verilog.git
 [submodule "systolic-array-matrix-multiplication"]
     path = systolic-array-matrix-multiplication
-	url = https://x-access-token:${GITHUB_TOKEN}@github.com/Mummanajagadeesh/systolic-array-matrix-multiplication.git
-    branch = main
-
+    url = git@github.com:Mummanajagadeesh/systolic-array-matrix-multiplication.git
 [submodule "alternate-numerical-notations-for-riscv"]
     path = alternate-numerical-notations-for-riscv
-	url = https://x-access-token:${GITHUB_TOKEN}@github.com/Mummanajagadeesh/alternate-numerical-notations-for-riscv.git
-    branch = main
+    url = git@github.com:Mummanajagadeesh/alternate-numerical-notations-for-riscv.git
