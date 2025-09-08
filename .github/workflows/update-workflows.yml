@@ -3,17 +3,17 @@ name: Update Submodules
 on:
   schedule:
     - cron: '0 3 * * *'   # run daily at 03:00 UTC
-  workflow_dispatch:       # allow manual trigger
+  workflow_dispatch:
 
 jobs:
   update-submodules:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository (no submodules yet)
         uses: actions/checkout@v4
         with:
-          submodules: false   # we'll handle submodules manually
+          submodules: false
           persist-credentials: false
 
       - name: Configure Git
@@ -21,13 +21,17 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Fix submodule URLs (safety net)
+      - name: Rewrite submodule URLs with token
         run: |
-          git submodule set-url ImProVe https://github.com/Mummanajagadeesh/ImProVe.git
-          git submodule set-url NeVer https://github.com/Mummanajagadeesh/NeVer.git
-          git submodule set-url cordic-algorithm-verilog https://github.com/Mummanajagadeesh/cordic-algorithm-verilog.git
-          git submodule set-url systolic-array-matrix-multiplication https://github.com/Mummanajagadeesh/systolic-array-matrix-multiplication.git
-          git submodule set-url alternate-numerical-notations-for-riscv https://github.com/Mummanajagadeesh/alternate-numerical-notations-for-riscv.git
+          for url in \
+            ImProVe \
+            NeVer \
+            cordic-algorithm-verilog \
+            systolic-array-matrix-multiplication \
+            alternate-numerical-notations-for-riscv
+          do
+            git submodule set-url $url https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Mummanajagadeesh/$url.git
+          done
           git submodule sync --recursive
 
       - name: Init + update submodules
