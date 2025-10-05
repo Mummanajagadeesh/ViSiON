@@ -1,0 +1,15 @@
+digraph max_pool_mem_core {
+    rankdir=LR;
+    fontsize=12;
+    fontname="Arial";
+
+    node [shape=record, fontname="Arial"];
+
+    max_pool_mem [label="{ 
+        { clk | rst | start | ifm_addr[9:0] | ifm_chan[3:0] | ifm_addr_valid | ifm_addr_ready | ifm_data[15:0] | ifm_data_valid | ifm_data_ready } 
+        | 
+        { WIDTH_IN=32 | HEIGHT_IN=32 | CHANNELS=16 | POOL_SIZE=2 | STRIDE=2 } 
+        | 
+        { done | out_data[31:0] | out_valid } 
+    }"];
+}

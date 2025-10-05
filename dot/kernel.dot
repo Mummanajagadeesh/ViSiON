@@ -1,0 +1,15 @@
+digraph rom_00_conv2d_kernel {
+    rankdir=LR;
+    fontsize=12;
+    fontname="Arial";
+
+    node [shape=record, fontname="Arial"];
+
+    rom_00_conv2d_kernel [label="{ 
+        { clk | rst | addr_valid | addr[8:0] | data_ready } 
+        | 
+        { DEPTH=432 | WIDTH=8 } 
+        | 
+        { addr_ready | data_valid | data[7:0] } 
+    }"];
+}

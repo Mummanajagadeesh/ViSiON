@@ -1,0 +1,15 @@
+digraph image_b_rom {
+    rankdir=LR;
+    fontsize=12;
+    fontname="Arial";
+
+    node [shape=record, fontname="Arial"];
+
+    image_b_rom [label="{ 
+        { clk | rst | addr[9:0] | addr_valid | data_ready } 
+        | 
+        { DEPTH=1024 | WIDTH=8 } 
+        | 
+        { addr_ready | data_valid | data[7:0] } 
+    }"];
+}

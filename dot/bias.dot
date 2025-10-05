@@ -1,0 +1,15 @@
+digraph rom_00_conv2d_bias {
+    rankdir=LR;
+    fontsize=12;
+    fontname="Arial";
+
+    node [shape=record, fontname="Arial"];
+
+    rom_00_conv2d_bias [label="{ 
+        { clk | rst | addr_valid | addr[3:0] | data_ready } 
+        | 
+        { DEPTH=16 | WIDTH=8 } 
+        | 
+        { addr_ready | data_valid | data[7:0] } 
+    }"];
+}

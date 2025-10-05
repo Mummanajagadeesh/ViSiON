@@ -1,0 +1,43 @@
+digraph cifar10_top {
+    rankdir=LR;
+    node [shape=box, fontname="Arial", fontsize=10];
+
+    // Stage 0: Inputs
+    inputs [label="Inputs & Memories\nclk, rst_n, wr_en, wr_sel, wr_addr, wr_data, start"];
+
+    // Stage 1: Conv1 block
+    conv01 [label="conv01\nimg_mem → conv1"];
+    relu1 [label="relu1\napply ReLU"];
+    conv02 [label="conv02\nrelu1 → conv1_2"];
+    relu2 [label="relu1_2\napply ReLU"];
+    shortcut1 [label="shortcut1\n1x1 conv img_mem → sc1_map"];
+    add1 [label="block1\nrelu1_2 + sc1_map"];
+    pool1 [label="pool1\n2x2 max pool"];
+
+    // Stage 2: Conv2 block
+    conv06 [label="conv06\npool1 → conv2a"];
+    relu2a [label="relu2a\napply ReLU"];
+    conv07 [label="conv07\nrelu2a → conv2b"];
+    relu2b [label="apply ReLU"];
+    shortcut2 [label="shortcut2\n1x1 conv pool1 → sc2_map"];
+    add2 [label="block2\nconv2b + sc2_map"];
+    pool2 [label="pool2\n2x2 max pool"];
+
+    // Stage 3: Head
+    avg_pool [label="global avg pool\npool2 → avg_pool"];
+    dense [label="dense\navg_pool x kernel12 → logits"];
+    argmax [label="argmax\nlogits → pred_index"];
+    outputs [label="Outputs\ndone, pred_index, logits0..9"];
+
+    // Arrange blocks in rows
+    { rank=same; conv01; relu1; conv02; relu2; shortcut1; add1; pool1 }
+    { rank=same; conv06; relu2a; conv07; relu2b; shortcut2; add2; pool2 }
+    { rank=same; avg_pool; dense; argmax; outputs }
+
+    // Connections
+    inputs -> conv01 -> relu1 -> conv02 -> relu2 -> add1 -> pool1 -> conv06 -> relu2a -> conv07 -> relu2b -> add2 -> pool2 -> avg_pool -> dense -> argmax -> outputs;
+
+    // Cross-links for shortcuts
+    shortcut1 -> add1;
+    shortcut2 -> add2;
+}

@@ -1,0 +1,15 @@
+digraph conv2d_core {
+    rankdir=LR;
+    fontsize=12;
+    fontname="Arial";
+
+    node [shape=record, fontname="Arial"];
+
+    conv2d [label="{ 
+        { clk | rst | start | image_addr[9:0] | image_addr_valid | image_r_data[7:0] | image_g_data[7:0] | image_b_data[7:0] | image_addr_ready | image_data_valid | kernel_addr[8:0] | kernel_addr_valid | kernel_data[7:0] | kernel_addr_ready | kernel_data_valid | bias_addr[3:0] | bias_addr_valid | bias_data[7:0] | bias_addr_ready | bias_data_valid } 
+        | 
+        { WIDTH=32 | HEIGHT=32 | CHANNELS=3 | FILTERS=16 | K=3 | PAD=1 | BIAS_MODE_POST_ADD=1 } 
+        | 
+        { done | image_data_ready | kernel_data_ready | bias_data_ready | out_data[31:0] | out_valid } 
+    }"];
+}
