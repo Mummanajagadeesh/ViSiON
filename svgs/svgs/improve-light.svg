@@ -1,0 +1,30 @@
+<svg width="500" height="162" viewBox="0 0 500 162" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .card-bg { fill: #fff; stroke: #1f6feb; stroke-width: 1; }
+    .repo-name { font: bold 16px sans-serif; fill: #0969da; cursor: pointer; text-decoration: underline; }
+    .repo-desc { font: 14px sans-serif; fill: #57606a; }
+    .meta { font: 12px sans-serif; fill: #57606a; }
+    .badge { font: 11px sans-serif; fill: #57606a; }
+    .lang-dot { r: 5; }
+  </style>
+  <rect class="card-bg" x="0" y="0" width="500" height="162" rx="12" ry="12" />
+  <a href="https://github.com/Mummanajagadeesh/ImProVe" target="_blank">
+    <text x="16" y="30" class="repo-name">ImProVe</text>
+  </a>
+  <rect x="420" y="16" rx="4" ry="4" width="65" height="18" fill="#ddf4ff" stroke="#0969da" />
+  <text x="428" y="29" class="badge">Private</text>
+  <text x="16" y="55" class="repo-desc">
+    <tspan x="16" dy="0">Image processing using Verilog</tspan>
+  </text>
+  <circle class="lang-dot" cx="16" cy="83" fill="#b2b7f8" />
+  <text x="26" y="87" class="meta">Verilog</text>
+  <circle class="lang-dot" cx="126" cy="83" fill="#3572A5" />
+  <text x="136" y="87" class="meta">Python</text>
+  <circle class="lang-dot" cx="236" cy="83" fill="#ecdebe" />
+  <text x="246" y="87" class="meta">Roff</text>
+  <circle class="lang-dot" cx="346" cy="83" fill="#e34c26" />
+  <text x="356" y="87" class="meta">HTML</text>
+  <circle class="lang-dot" cx="16" cy="105" fill="#4f87c4" />
+  <text x="26" y="109" class="meta">V</text>
+  <text x="484" y="132" text-anchor="end" class="meta">⭐ 1 star(s)</text>
+</svg>

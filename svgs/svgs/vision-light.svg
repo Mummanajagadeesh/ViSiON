@@ -1,0 +1,21 @@
+<svg width="500" height="136" viewBox="0 0 500 136" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .card-bg { fill: #fff; stroke: #1f6feb; stroke-width: 1; }
+    .repo-name { font: bold 16px sans-serif; fill: #0969da; cursor: pointer; text-decoration: underline; }
+    .repo-desc { font: 14px sans-serif; fill: #57606a; }
+    .meta { font: 12px sans-serif; fill: #57606a; }
+    .badge { font: 11px sans-serif; fill: #57606a; }
+    .lang-dot { r: 5; }
+  </style>
+  <rect class="card-bg" x="0" y="0" width="500" height="136" rx="12" ry="12" />
+  <a href="https://github.com/Mummanajagadeesh/ViSiON" target="_blank">
+    <text x="16" y="30" class="repo-name">ViSiON</text>
+  </a>
+  <rect x="430" y="16" rx="4" ry="4" width="55" height="18" fill="#ddf4ff" stroke="#0969da" />
+  <text x="438" y="29" class="badge">Public</text>
+  <text x="16" y="55" class="repo-desc">
+    <tspan x="16" dy="0">ViSiON - Verilog for Image processing and</tspan>
+    <tspan x="16" dy="18">Simulation-based Inference Of Neural Networks</tspan>
+  </text>
+  <text x="484" y="106" text-anchor="end" class="meta">⭐ 0 star(s)</text>
+</svg>

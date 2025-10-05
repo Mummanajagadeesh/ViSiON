@@ -1,0 +1,24 @@
+<svg width="500" height="176" viewBox="0 0 500 176" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .card-bg { fill: #fff; stroke: #1f6feb; stroke-width: 1; }
+    .repo-name { font: bold 16px sans-serif; fill: #0969da; cursor: pointer; text-decoration: underline; }
+    .repo-desc { font: 14px sans-serif; fill: #57606a; }
+    .meta { font: 12px sans-serif; fill: #57606a; }
+    .badge { font: 11px sans-serif; fill: #57606a; }
+    .lang-dot { r: 5; }
+  </style>
+  <rect class="card-bg" x="0" y="0" width="500" height="176" rx="12" ry="12" />
+  <a href="https://github.com/Mummanajagadeesh/cordic-algorithm-verilog" target="_blank">
+    <text x="16" y="30" class="repo-name">cordic-algorithm-verilog</text>
+  </a>
+  <rect x="420" y="16" rx="4" ry="4" width="65" height="18" fill="#ddf4ff" stroke="#0969da" />
+  <text x="428" y="29" class="badge">Private</text>
+  <text x="16" y="55" class="repo-desc">
+    <tspan x="16" dy="0">Verilog-based implementation of the CORDIC</tspan>
+    <tspan x="16" dy="18">algorithm for efficient estimation of</tspan>
+    <tspan x="16" dy="18">mathematical  functions</tspan>
+  </text>
+  <circle class="lang-dot" cx="16" cy="119" fill="#b2b7f8" />
+  <text x="26" y="123" class="meta">Verilog</text>
+  <text x="484" y="146" text-anchor="end" class="meta">⭐ 1 star(s)</text>
+</svg>
